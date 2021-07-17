@@ -1,98 +1,101 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', 'Roboto', sans-serif;
-  }
-  html, body {
-    height: 100%;
-    background: pink;
-  }
-
-.wrapper{
-    position: absolute;
-    height: 50%;
-    width:300px;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto ;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    text-align: center;
-    padding: 1em;
-    border-radius:5px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', 'Roboto', sans-serif;
+}
+html,
+body {
+  height: 100%;
+  background: pink;
 }
 
-#wrapper__counter{
-    height: 150px;
-    width: 200px;
-    color: purple;
-    margin: auto;
-    line-height: 150px;
-    font-size: 50px;
-    background:plum;
-    border-radius: 5px;  
-    box-shadow: 0 15px 30px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    margin-bottom:30px;
-  }
-
-  #wrapper__button__add{
-    background: purple;
-   }
-   
-    #wrapper__button__delete{
-      background:purple;
-    }
-    
-    #wrapper__button__reset {
-      background:purple;
-    } 
-  
-    .button{
-        position:relative;
-        height:50px;
-        width:50px;
-        margin: 0px 5px;
-        color: plum;
-        border:none;
-        border-radius: 5px;
-        line-height: 50px;
-        font-size:32px;
-        overflow: hidden;
-        box-shadow:0 15px 30px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    }
-
-    button:hover{
-        box-shadow:0 14px 40px rgba(0,0,0,0.6), 0 10px 10px rgba(0,0,0,0.22); 
-      }
-
-      input {
-        margin-top: 3px;
-        width: 200px;
-        padding: 7px;
-        color: purple;
-        background: plum;
-        text-align: center;
-        font-size: 25px;
-        font-weight: 700;
-        border: none;
-        border-radius: 5px;
-      }
-    input:focus {
-          outline:none;
-        }
-h1{
-    margin-bottom: 5%;
-}      
-h1, .inputs{
-    color:purple;
-    font-weight: 700;
+.wrapper {
+  position: absolute;
+  height: 50%;
+  width: 300px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  text-align: center;
+  padding: 1em;
+  border-radius: 5px;
 }
 
-.step, .max, .min {
-    margin-top: 10px;
-    
+#wrapper__counter {
+  height: 150px;
+  width: 200px;
+  color: purple;
+  margin: auto;
+  line-height: 150px;
+  font-size: 50px;
+  background: plum;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  margin-bottom: 30px;
+}
+
+#wrapper__button__add {
+  background: purple;
+}
+
+#wrapper__button__delete {
+  background: purple;
+}
+
+#wrapper__button__reset {
+  background: purple;
+}
+
+.button {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  margin: 0px 5px;
+  color: plum;
+  border: none;
+  border-radius: 5px;
+  line-height: 50px;
+  font-size: 32px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+button:hover {
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+input {
+  margin-top: 3px;
+  width: 200px;
+  padding: 7px;
+  color: purple;
+  background: plum;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+}
+input:focus {
+  outline: none;
+}
+h1 {
+  margin-bottom: 5%;
+}
+h1,
+.inputs {
+  color: purple;
+  font-weight: 700;
+}
+
+.step,
+.max,
+.min {
+  margin-top: 10px;
 }

@@ -2,19 +2,35 @@ import React from 'react';
 import './counter.css';
 
 export default class Counter extends React.Component {
-  state = {
-    count: 0,
-    maxValue: 15,
-    minValue: 5,
-    step: 5,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      count: 0,
+      maxValue: 0,
+      minValue: 0,
+      step: 0,
+    };
+  }
 
   componentDidMount() {
     const stringCount = localStorage.getItem('count');
-    const count = parseInt(stringCount);
+    const stringMaxValue = localStorage.getItem('maxValue');
+    const stringMinValue = localStorage.getItem('minValue');
+    const stringStep = localStorage.getItem('step');
 
-    if (!isNaN(count)) {
-      this.setState(() => ({ count }));
+    const count = parseInt(stringCount);
+    const maxValue = parseInt(stringMaxValue);
+    const minValue = parseInt(stringMinValue);
+    const step = parseInt(stringStep);
+
+    if (!isNaN(count) && !isNaN(maxValue) && !isNaN(minValue) && !isNaN(step)) {
+      this.setState({
+        count,
+        maxValue,
+        minValue,
+        step,
+      });
     }
   }
 
@@ -22,18 +38,28 @@ export default class Counter extends React.Component {
     if (prevState.count !== this.state.count) {
       localStorage.setItem('count', this.state.count);
     }
+    if (prevState.maxValue !== this.state.maxValue) {
+      localStorage.setItem('maxValue', this.state.maxValue);
+    }
+    if (prevState.minValue !== this.state.minValue) {
+      localStorage.setItem('minValue', this.state.minValue);
+    }
+    if (prevState.step !== this.state.step) {
+      localStorage.setItem('step', this.state.step);
+    }
   }
 
   handleCount = (num) => {
     this.setState((prevState) => {
-      const handleState = num >= 0
-        ? Math.min(prevState.count + num, prevState.maxValue)
-        : Math.max(prevState.count + num, prevState.minValue)
-        return {
-          count: handleState,
-        };
+      const handleState =
+        num >= 0
+          ? Math.min(prevState.count + num, prevState.maxValue)
+          : Math.max(prevState.count + num, prevState.minValue);
+      return {
+        count: handleState,
+      };
     });
-  }
+  };
 
   // handleAddCount = () => {
   //   this.setState(() => {
@@ -60,14 +86,19 @@ export default class Counter extends React.Component {
   };
 
   handleChange = (event) => {
-    this.setState({
-      step: Number(event.target.value),
-    });
+    const val = Number(event.target.value);
+    const id = event.target.id;
+    if (val >= 0) {
+      this.setState({
+        [id]: val,
+      });
+    } else {
+      event.target.value = 0;
+    }
   };
 
- 
-
   render() {
+    const step = this.state.step;
     return (
       <div className="wrapper">
         <h1>Counter</h1>
@@ -78,14 +109,18 @@ export default class Counter extends React.Component {
           <button
             id="wrapper__button__add"
             className="button"
-            onClick={() => { this.handleCount(-1 * this.state.step)}}
+            onClick={() => {
+              this.handleCount(-1 * step);
+            }}
           >
             <i className="fa fa-minus"></i>
           </button>
           <button
             id="wrapper__button__delete"
             className="button"
-            onClick={() => {this.handleCount(this.state.step)}}
+            onClick={() => {
+              this.handleCount(step);
+            }}
           >
             <i className="fa fa-plus"></i>
           </button>
@@ -101,26 +136,26 @@ export default class Counter extends React.Component {
         <div className="inputs">
           <div className="step">Change steps:</div>
           <input
+            id="step"
             type="number"
-             defaultValue={this.state.value}
-            value={this.state.step}
+            value={step}
             onChange={this.handleChange}
           />
 
           <div className="max">Change maximal value:</div>
           <input
+            id="maxValue"
             type="number"
-           defaultValue={this.state.maxValue}
             value={this.state.maxValue}
-            onChange={this.handleMaxCount}
+            onChange={this.handleChange}
           />
 
           <div className="min">Change minimal value:</div>
           <input
+            id="minValue"
             type="number"
-            defaultValue={this.state.minValue}
             value={this.state.minValue}
-            onChange={this.handleMinCount}
+            onChange={this.handleChange}
           />
         </div>
       </div>
