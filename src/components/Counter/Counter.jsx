@@ -1,5 +1,5 @@
 import React from 'react';
-import './counter.css';
+import styles from './counter.module.css';
 
 export default class Counter extends React.Component {
   constructor(props) {
@@ -84,7 +84,7 @@ export default class Counter extends React.Component {
   render() {
     const step = this.state.step;
     return (
-      <div className="wrapper">
+      <div className={styles.wrapper}>
         <h1>Counter</h1>
         <div id="wrapper__counter" className="container">
           <p>{this.state.count}</p>
