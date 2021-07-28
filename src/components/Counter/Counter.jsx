@@ -61,22 +61,6 @@ export default class Counter extends React.Component {
     });
   };
 
-  // handleAddCount = () => {
-  //   this.setState(() => {
-  //     return {
-  //       count: this.state.count + +this.state.value,
-  //     };
-  //   });
-  // };
-
-  // handleDeleteCount = () => {
-  //   this.setState(() => {
-  //     return {
-  //       count: Math.max(this.state.count - this.state.value, 0),
-  //     };
-  //   });
-  // };
-
   handleResetCount = () => {
     this.setState((prevState) => {
       return {
