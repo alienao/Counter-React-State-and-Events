@@ -1,17 +1,13 @@
 import React from 'react';
-import styles from './counter.module.css';
+import styles from './counter.css';
 
 export default class Counter extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      count: 0,
-      maxValue: 0,
-      minValue: 0,
-      step: 0,
-    };
-  }
+  state = {
+    count: 0,
+    maxValue: 0,
+    minValue: 0,
+    step: 0,
+  };
 
   componentDidMount() {
     const stringCount = localStorage.getItem('count');
@@ -84,7 +80,7 @@ export default class Counter extends React.Component {
   render() {
     const step = this.state.step;
     return (
-      <div className={styles.wrapper}>
+      <div className="wrapper">
         <h1>Counter</h1>
         <div id="wrapper__counter" className="container">
           <p>{this.state.count}</p>
